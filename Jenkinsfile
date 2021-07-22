@@ -5,7 +5,7 @@ pipeline {
       steps {     
         script{
           pipeline = load 'example.groovy'
-          pipeline.functionA()
+          pipeline.test()
         }
       }
     }
