@@ -4,8 +4,8 @@ pipeline {
     stage('test') {   
       steps {     
         script{
-          def pipeline = load 'example.groovy'
-          pipeline.test()
+          def var1 = load "example.groovy"
+          var1.test()
         }
       }
     }
