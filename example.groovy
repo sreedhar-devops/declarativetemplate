@@ -1,6 +1,6 @@
-
-def test() {
-   echo "hi from test function of example.groovy file"
+def smoketestfun(String smoketestChoice, String deploymentEnvironment){
+    echo $smoketestChoice
+    echo $deploymentEnvironment
 }
 
 return this
