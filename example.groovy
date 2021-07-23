@@ -1,6 +1,6 @@
 def smoketestfun(String smoketestChoice, String deploymentEnvironment){
     echo "${smoketestChoice}"
-    //echo $deploymentEnvironment
+    echo "${deploymentEnvironment}"
 }
 
 return this
