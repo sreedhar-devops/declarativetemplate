@@ -6,7 +6,7 @@ pipeline {
         expression { DEPLOY_ENV ==~ '(qa1|qa2)'}
       }  
       environment {
-        credsfordownsteamjob = credentials('credsfordownsteamjob')
+        credsfordownsteamjob1 = credentials('credsfordownsteamjob')
         Deploy_Env = "${DEPLOY_ENV}"
         SmokeTest = "${SmokeTest}"
        
