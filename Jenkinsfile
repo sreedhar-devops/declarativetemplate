@@ -21,7 +21,9 @@ pipeline {
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'credsfordownsteamjob', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
            sh ''' echo  $USERNAME '''
            sh ''' echo  $PASSWORD '''
-           var1.smoketestfun($USERNAME, $PASSWORD)
+           USERNAME1=$USERNAME
+           PASSWORD1=$PASSWORD
+           //var1.smoketestfun(USERNAME1, $PASSWORD1)
         } 
         }
       }
