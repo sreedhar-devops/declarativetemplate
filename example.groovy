@@ -18,7 +18,7 @@ def smoketestfun(String smoketestChoice, String deploymentEnvironment){
             } 
             else { 
                 sh ''' echo " deploy env is $DEPLOY_ENV "  '''
-                sh ''' curl -d "token=my-token&DEPLOY_ENV=$DEPLOY_ENV" -i -X POST "http://$credsfordownsteamjob_USR:$credsfordownsteamjob_PSW@localhost:8080/job/smoketestqa1/buildWithParameters" '''              
+              //  sh ''' curl -d "token=my-token&DEPLOY_ENV=$DEPLOY_ENV" -i -X POST "http://$credsfordownsteamjob_USR:$credsfordownsteamjob_PSW@localhost:8080/job/smoketestqa1/buildWithParameters" '''              
             }                        
         }
         else{
