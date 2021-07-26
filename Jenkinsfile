@@ -16,8 +16,12 @@ pipeline {
           echo "printing credentials"  
           echo $credsfordownsteamjob_USR 
           echo $credsfordownsteamjob_PSW  
-          def var1 = load "example.groovy"
-          var1.smoketestfun($credsfordownsteamjob_USR, $credsfordownsteamjob_PSW)
+        //  def var1 = load "example.groovy"
+         // var1.smoketestfun($credsfordownsteamjob_USR, $credsfordownsteamjob_PSW)
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'credsfordownsteamjob', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+           sh '''' echo  $USERNAME '''
+           sh '''' echo  $PASSWORD '''
+        } 
         }
       }
     }
