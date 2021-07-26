@@ -3,16 +3,18 @@ def smoketestfun(String smoketestChoice, String deploymentEnvironment){
 //    echo "${deploymentEnvironment}"
 //    smokeTest="${smoketestChoice}"
     echo smokeTest
+    echo DEPLOY_ENV
     if( smokeTest == "Yes" ) {
         if( !fileExists("/var/lib/jenkins/smoketest") ) {         
                 sh 'mkdir -p /var/lib/jenkins/smoketest'
         } 
-/*        if(Deploy_Env == "qa1") {
-            def status = sh(script:'curl -u $credsfordownsteamjob_USR:$credsfordownsteamjob_PSW  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building', returnStdout:true).trim()
+        if(DEPLOY_ENV == "qa1") {
+            echo "inside qa1 if block"
+        //    def status = sh(script:'curl -u $credsfordownsteamjob_USR:$credsfordownsteamjob_PSW  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building', returnStdout:true).trim()
         }
         else{
 
-        }  */
+        }  
     }   
 }
 
