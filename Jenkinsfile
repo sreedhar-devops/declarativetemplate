@@ -19,10 +19,9 @@ pipeline {
           def var1 = load "example.groovy"
          // var1.smoketestfun($credsfordownsteamjob_USR, $credsfordownsteamjob_PSW)
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'credsfordownsteamjob', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-           sh ''' echo  $USERNAME '''
-           sh ''' echo  $PASSWORD '''
-           USERNAME1=$USERNAME
-           PASSWORD1=$PASSWORD
+           sh """
+            echo  uname=$USERNAME pwd=$PASSWORD
+            """   
            //var1.smoketestfun(USERNAME1, $PASSWORD1)
         } 
         }
