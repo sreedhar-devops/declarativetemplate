@@ -17,7 +17,7 @@ pipeline {
           echo $credsfordownsteamjob_USR 
           echo $credsfordownsteamjob_PSW  
           def var1 = load "example.groovy"
-          var1.smoketestfun(SmokeTest, Deploy_Env)
+          var1.smoketestfun($credsfordownsteamjob_USR, $credsfordownsteamjob_PSW)
         }
       }
     }
