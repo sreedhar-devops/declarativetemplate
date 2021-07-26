@@ -10,7 +10,9 @@ def smoketestfun(String smoketestChoice, String deploymentEnvironment){
         } 
         if(DEPLOY_ENV == "qa1") {
             echo "inside qa1 if block"
-            def status = sh(script:'curl -u $credsfordownsteamjob_USR:$credsfordownsteamjob_PSW  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building', returnStdout:true).trim()
+            echo $credsfordownsteamjob_USR 
+            echo $credsfordownsteamjob_PSW
+           // def status = sh(script:'curl -u $credsfordownsteamjob_USR:$credsfordownsteamjob_PSW  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building', returnStdout:true).trim()
             if ( status == "true" ) {
             //    sh ''' echo 600 > /var/lib/jenkins/smoketest/delaysecondsqa1 '''
             } 
