@@ -24,6 +24,7 @@ pipeline {
             echo  uname=$USERNAME pwd=$PASSWORD
             """   
             sh ' echo $PASSWORD '
+            echo "user name is $USERNAME"
            //var1.smoketestfun(USERNAME1, $PASSWORD1)
         } 
         }
@@ -32,6 +33,8 @@ pipeline {
     
   }
 }
+
+
 
 
 
