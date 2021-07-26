@@ -13,6 +13,7 @@ pipeline {
       }              
       steps {     
         script{
+          echo "printing credentials"  
           echo $credsfordownsteamjob_USR 
           echo $credsfordownsteamjob_PSW  
           def var1 = load "example.groovy"
