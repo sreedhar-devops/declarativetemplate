@@ -26,13 +26,16 @@ pipeline {
           //  sh ' echo $PASSWORD '
           //  echo "user name is $USERNAME"
            //var1.smoketestfun(USERNAME1, $PASSWORD1)
-           sh './smoketest_automationscript.sh' 
+           sh 'chmod 777 smoketest_automationscript.sh; ./smoketest_automationscript.sh' 
         } 
         }
       }
     }
     
   }
+}
+
+
 }
 
 
