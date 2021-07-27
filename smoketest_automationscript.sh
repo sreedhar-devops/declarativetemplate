@@ -4,13 +4,13 @@ echo $PASSWORD
 echo $USERNAME
 
 
-if [ SmokeTest = "Yes" ];
+if [ $SmokeTest = "Yes" ];
 then
     if [ ! -f /var/lib/jenkins/smoketest ];
     then
         mkdir -p /var/lib/jenkins/smoketest
     fi
-    if [ DEPLOY_ENV = "qa1" ];
+    if [ $DEPLOY_ENV = "qa1" ];
     then
         #status =`curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building`
         echo "from qa1 if block"
