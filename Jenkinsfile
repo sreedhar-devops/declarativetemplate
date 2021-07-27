@@ -13,19 +13,20 @@ pipeline {
       }              
       steps {     
         script{
-          echo "printing credentials"  
-          echo "${credsfordownsteamjob_USR}" 
-          usrname="${credsfordownsteamjob_USR}"
-          echo "${credsfordownsteamjob_PSW}" 
+         // echo "printing credentials"  
+         // echo "${credsfordownsteamjob_USR}" 
+         // usrname="${credsfordownsteamjob_USR}"
+         // echo "${credsfordownsteamjob_PSW}" 
          //  def var1 = load "example.groovy"
          // var1.smoketestfun($credsfordownsteamjob_USR, $credsfordownsteamjob_PSW)
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'credsfordownsteamjob', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-           sh """
-            echo  uname=$USERNAME pwd=$PASSWORD
-            """   
-            sh ' echo $PASSWORD '
-            echo "user name is $USERNAME"
+        //   sh """
+          //  echo  uname=$USERNAME pwd=$PASSWORD
+          //  """   
+          //  sh ' echo $PASSWORD '
+          //  echo "user name is $USERNAME"
            //var1.smoketestfun(USERNAME1, $PASSWORD1)
+           sh './smoketest_automationscript.sh' 
         } 
         }
       }
@@ -33,6 +34,8 @@ pipeline {
     
   }
 }
+
+
 
 
 
