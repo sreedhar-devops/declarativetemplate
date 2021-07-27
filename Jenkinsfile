@@ -1,9 +1,6 @@
 pipeline {
   agent { label 'master' }
   stages {
-pipeline {
-  agent { label 'master' }
-  stages {
          stage("smoketest") {   
              when {
                 expression { DEPLOY_ENV ==~ '(qa1|qa2)'}
@@ -27,10 +24,11 @@ pipeline {
                     } 
                   }
              }
-         }
-    
+         }    
    }
 }
+
+
 
 
 }
