@@ -13,6 +13,7 @@ then
     if [ DEPLOY_ENV = "qa1" ];
     then
         #status =`curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building`
+        echo "from qa1 if block"
         curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa1/lastBuild/api/json
       #  if [ status = "true" ];
       #  then
