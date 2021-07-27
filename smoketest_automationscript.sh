@@ -1,5 +1,7 @@
 echo $SmokeTest
 echo $DEPLOY_ENV
+echo $PASSWORD
+echo $USERNAME
 
 <<coment
 if [ SmokeTest = "Yes" ];
