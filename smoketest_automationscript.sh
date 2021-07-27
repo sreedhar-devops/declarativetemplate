@@ -12,18 +12,18 @@ then
     fi
     if [ $DEPLOY_ENV = "qa1" ];
     then
-        #status =`curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building`
+        status =`curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa1/lastBuild/api/json|jq .building`
         echo "from qa1 if block"
-        curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa1/lastBuild/api/json
-      #  if [ status = "true" ];
-      #  then
-       #     echo 600 > /var/lib/jenkins/smoketest/delaysecondsqa1 
-       # else
-        #    curl -d "token=my-token&DEPLOY_ENV=$DEPLOY_ENV" -i -X POST "http://$USERNAME:$PASSWORD@localhost:8080/job/smoketestqa1/buildWithParameters"
-        #fi
+       # curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa1/lastBuild/api/json
+        if [ $status = "true" ];
+        then
+            echo 600 > /var/lib/jenkins/smoketest/delaysecondsqa1 
+        else
+            curl -d "token=my-token&DEPLOY_ENV=$DEPLOY_ENV" -i -X POST "http://$USERNAME:$PASSWORD@localhost:8080/job/smoketestqa1/buildWithParameters"
+        fi
     else
         status =`curl -u $USERNAME:$PASSWORD  http://localhost:8080/job/smoketestqa2/lastBuild/api/json|jq .building`
-        if [ status = "true" ];
+        if [ $status = "true" ];
         then
             echo 600 > /var/lib/jenkins/smoketest/delaysecondsqa2 
         else
