@@ -11,13 +11,13 @@ pipeline {
                  branches: [[name: 'main']],
                  userRemoteConfigs: [[url: 'https://github.com/sreedhar-devops/clonetest.git']]]
                }   
-                 script{
+                // script{
                     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'credsfordownsteamjob', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-                      //  sh 'chmod 777 ./smokeautomation/smoketest_automationscript.sh'
-                        sh 'chmod 777 ./smokeautomation/smoketest_automationscript.sh; ./smokeautomation/smoketest_automationscript.sh' 
+                                      sh 'chmod 777 ./smokeautomation/smoketest_automationscript.sh; ./smokeautomation/smoketest_automationscript.sh' 
                     } 
-                  }
+               //   }
              }
          }    
    }
 }
+
