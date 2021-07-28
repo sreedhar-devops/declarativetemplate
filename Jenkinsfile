@@ -6,13 +6,15 @@ pipeline {
                 expression { DEPLOY_ENV ==~ '(qa1|qa2)'}
              }  
               steps { 
+               dir("smokeautomation") { 
                  checkout scm: [$class: 'GitSCM',
                  branches: [[name: 'main']],
-                 userRemoteConfigs: [[url: 'https://github.com/sreedhar-devops/clonetest.git']]]    
+                 userRemoteConfigs: [[url: 'https://github.com/sreedhar-devops/clonetest.git']]]
+               }   
                  script{
                     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'credsfordownsteamjob', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-                        sh 'chmod 777 smoketest_automationscript.sh'
-                        sh './smoketest_automationscript.sh' 
+                        sh 'chmod 777 ./smokeautomation/smoketest_automationscript.sh'
+                        sh './smokeautomation/smoketest_automationscript.sh' 
                     } 
                   }
              }
